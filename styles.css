@@ -668,3 +668,25 @@ html, body {
     border-radius: 50%;
     transform: rotate(-1deg);
 }
+.download-section {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.download-btn {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 0.1em;
+    color: #ffffff;
+    background-color: #2D6B6B;
+    padding: 16px 48px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.download-btn:hover {
+    background-color: #C1392B;
+}
