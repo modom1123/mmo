@@ -523,6 +523,17 @@ footer a:hover {
 .case-study-section:last-of-type {
     padding-bottom: 60px;
 }
+.case-study-page {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.case-study-section img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
 
 /* ============================================
    PREVENT HORIZONTAL OVERFLOW
