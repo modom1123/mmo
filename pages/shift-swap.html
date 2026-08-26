@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shift Swap Demo | Mallory Odom</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .demo-wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .demo-stage {
+            position: relative;
+            width: 100%;
+            line-height: 0;
+        }
+
+        .demo-screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: none;
+            line-height: 0;
+        }
+
+        .demo-screen.active {
+            display: block;
+            position: relative;
+        }
+
+        .demo-screen img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .hotspot {
+            position: absolute;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background 0.2s ease, outline 0.2s ease;
+            z-index: 5;
+        }
+
+        .hotspot:hover {
+            background: rgba(212, 184, 61, 0.25);
+            outline: 2px solid #D4B83D;
+        }
+
+        .nav-hotspots {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .nav-hotspots .hotspot {
+            pointer-events: auto;
+        }
+
+        .demo-note {
+            text-align: center;
+            font-family: 'Source Sans Pro', sans-serif;
+            color: #666;
+            font-size: 0.85rem;
+            margin-top: 12px;
+        }
+    </style>
+</head>
+<body>
+    <!-- ROW 1: Home + Nav + Back -->
+    <div class="row-1">
+        <a href="../index.html" class="img-block no-hover clickable">
+            <img src="../images/row1-home.png" class="default" alt="Home">
+        </a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="../index.html">HOME</a></li>
+                <li><a href="resume.html">RESUME</a></li>
+                <li><a href="aboutme.html">ABOUT ME</a></li>
+            </ul>
+        </nav>
+        <a href="javascript:history.back()" class="img-block no-hover clickable">
+            <img src="../images/row1-back.png" class="default" alt="Back">
+        </a>
+    </div>
+
+    <!-- DEMO -->
+    <div class="demo-wrap">
+        <div class="demo-stage">
+
+            <!-- Screen: Schedule (default/home) -->
+            <div class="demo-screen active" data-screen="schedule">
+                <img src="../images/shift swap-schedule.png" alt="ShiftSwap schedule view">
+            </div>
+
+            <!-- Screen: Find Coverage home -->
+            <div class="demo-screen" data-screen="find-home">
+                <img src="../images/shift swap-find home.png" alt="ShiftSwap find coverage home">
+                <div class="hotspot" data-goto="find-as-manager" style="left: 37%; top: 24.5%; width: 14%; height: 17%;"></div>
+                <div class="hotspot" data-goto="find-as-me" style="left: 51%; top: 24.5%; width: 14%; height: 17%;"></div>
+            </div>
+
+            <!-- Screen: Find Coverage - As a Manager -->
+            <div class="demo-screen" data-screen="find-as-manager">
+                <img src="../images/shift swap-find as a manager.png" alt="ShiftSwap find coverage as a manager">
+                <div class="hotspot" data-goto="find-as-me" style="left: 51%; top: 24.5%; width: 14%; height: 17%;"></div>
+            </div>
+
+            <!-- Screen: Find Coverage - As Me -->
+            <div class="demo-screen" data-screen="find-as-me">
+                <img src="../images/shift swap-find as me.png" alt="ShiftSwap find coverage as me">
+                <div class="hotspot" data-goto="find-as-manager" style="left: 37%; top: 24.5%; width: 14%; height: 17%;"></div>
+            </div>
+
+            <!-- Screen: Requests -->
+            <div class="demo-screen" data-screen="requests">
+                <img src="../images/shift swap-request.png" alt="ShiftSwap requests view">
+            </div>
+
+            <!-- Screen: Upload / Edit Schedule -->
+            <div class="demo-screen" data-screen="upload">
+                <img src="../images/shift swap- upload.png" alt="ShiftSwap upload and edit schedule view">
+            </div>
+
+            <!-- Screen: Users -->
+            <div class="demo-screen" data-screen="users">
+                <img src="../images/shift swap-users.png" alt="ShiftSwap users view">
+            </div>
+
+            <!-- Persistent bottom nav hotspots, same on every screen -->
+            <div class="nav-hotspots">
+                <div class="hotspot" data-goto="requests" style="left: 36%; top: 94%; width: 5.5%; height: 5.5%;"></div>
+                <div class="hotspot" data-goto="find-home" style="left: 41.8%; top: 94%; width: 5.5%; height: 5.5%;"></div>
+                <div class="hotspot" data-goto="schedule" style="left: 47.6%; top: 94%; width: 5.5%; height: 5.5%;"></div>
+                <div class="hotspot" data-goto="upload" style="left: 53.4%; top: 94%; width: 5.5%; height: 5.5%;"></div>
+                <div class="hotspot" data-goto="users" style="left: 59.2%; top: 94%; width: 5.5%; height: 5.5%;"></div>
+            </div>
+
+        </div>
+
+        <p class="demo-note">Click the highlighted areas to navigate the prototype.</p>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-stripes">
+            <div class="stripe s1"></div>
+            <div class="stripe s2"></div>
+            <div class="stripe s3"></div>
+            <div class="stripe s4"></div>
+            <div class="stripe s5"></div>
+        </div>
+        <p>© 2024 Mallory Odom</p>
+    </footer>
+
+    <script src="../app.js"></script>
+    <script>
+        document.querySelectorAll('.hotspot[data-goto]').forEach(function (spot) {
+            spot.addEventListener('click', function () {
+                var target = spot.getAttribute('data-goto');
+                document.querySelectorAll('.demo-screen').forEach(function (screen) {
+                    screen.classList.toggle('active', screen.getAttribute('data-screen') === target);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

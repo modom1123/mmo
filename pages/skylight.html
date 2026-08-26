@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mallory Odom — for Skylight</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#FBF8F2;
+    --paper-2:#F4EEE3;
+    --card:#FFFFFF;
+    --ink:#2B2E36;
+    --ink-soft:#5C616E;
+    --ink-faint:#8A8F9C;
+    --sage:#84A98C;
+    --sage-deep:#5C8266;
+    --lagoon:#6CA6C6;
+    --lagoon-deep:#3E7A9D;
+    --lavender:#BBA9E0;
+    --apricot:#EBA982;
+    --line:#EAE2D4;
+    --shadow:0 18px 40px -24px rgba(43,46,54,.32);
+    --shadow-soft:0 10px 28px -20px rgba(43,46,54,.28);
+    --r-lg:28px;
+    --r-md:20px;
+    --r-sm:14px;
+    --maxw:920px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Inter",system-ui,sans-serif;
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px;}
+  h1,h2,h3{font-family:"Quicksand",sans-serif;font-weight:600;letter-spacing:-.01em;margin:0;}
+  p{margin:0 0 1em;}
+  a{color:var(--lagoon-deep);}
+  .eyebrow{
+    font-family:"Inter",sans-serif;font-weight:600;font-size:12.5px;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);
+    margin:0 0 14px;
+  }
+
+  /* ---------- Device-frame hero ---------- */
+  header{padding:46px 0 18px;}
+  .device{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--r-lg);
+    box-shadow:var(--shadow);
+    overflow:hidden;
+  }
+  .statusbar{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:13px 22px;background:var(--paper-2);
+    border-bottom:1px solid var(--line);
+    font-size:13px;color:var(--ink-soft);font-weight:500;
+  }
+  .statusbar .os{display:flex;align-items:center;gap:9px;font-family:"Quicksand";font-weight:600;color:var(--ink);}
+  .dot{width:9px;height:9px;border-radius:50%;display:inline-block;}
+  .dot.sage{background:var(--sage);}
+  .dot.lagoon{background:var(--lagoon);}
+  .dot.lav{background:var(--lavender);}
+  .statusbar .meta{display:flex;align-items:center;gap:14px;font-variant-numeric:tabular-nums;}
+  .screen{padding:40px 34px 38px;}
+  .screen h1{font-size:clamp(30px,5.4vw,46px);line-height:1.08;}
+  .screen h1 .hl{color:var(--sage-deep);}
+  .screen .sub{font-size:clamp(17px,2.4vw,19px);color:var(--ink-soft);max-width:44ch;margin-top:18px;}
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:"Quicksand";font-weight:600;font-size:15px;
+    padding:12px 22px;border-radius:999px;text-decoration:none;
+    border:1.5px solid transparent;transition:transform .15s ease, background .15s ease;
+  }
+  .btn.primary{background:var(--sage);color:#fff;}
+  .btn.primary:hover{background:var(--sage-deep);transform:translateY(-1px);}
+  .btn.ghost{background:transparent;color:var(--ink);border-color:var(--line);}
+  .btn.ghost:hover{border-color:var(--sage);transform:translateY(-1px);}
+
+  .note-from{
+    margin-top:22px;font-size:13.5px;color:var(--ink-faint);
+    display:flex;align-items:center;gap:9px;
+  }
+
+  /* ---------- Sections ---------- */
+  section{padding:46px 0;}
+  .sec-head{margin-bottom:26px;}
+  .sec-head h2{font-size:clamp(23px,3.6vw,30px);}
+  .sec-head .lede{color:var(--ink-soft);max-width:58ch;margin-top:10px;}
+
+  /* tile grid for "why me" */
+  .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .tile{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);
+    padding:22px 20px;box-shadow:var(--shadow-soft);
+  }
+  .tile .chip{
+    width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+    font-family:"Quicksand";font-weight:700;color:#fff;font-size:16px;margin-bottom:14px;
+  }
+  .tile h3{font-size:17px;margin-bottom:7px;}
+  .tile p{font-size:14.5px;color:var(--ink-soft);margin:0;}
+
+  /* the bet */
+  .bet{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);
+    box-shadow:var(--shadow);overflow:hidden;
+  }
+  .bet-top{padding:26px 30px;background:linear-gradient(180deg,var(--paper-2),var(--card));border-bottom:1px solid var(--line);}
+  .bet-top .tag{font-family:"Quicksand";font-weight:600;font-size:13px;color:var(--lagoon-deep);letter-spacing:.04em;}
+  .bet-top h3{font-size:clamp(21px,3.2vw,27px);margin-top:8px;line-height:1.15;}
+  .bet-grid{display:grid;grid-template-columns:1fr 1fr;}
+  .bet-cell{padding:24px 30px;border-top:1px solid var(--line);}
+  .bet-cell:nth-child(odd){border-right:1px solid var(--line);}
+  .bet-cell .k{
+    font-family:"Inter";font-weight:600;font-size:12px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--ink-faint);margin-bottom:9px;
+  }
+  .bet-cell p{font-size:15px;color:var(--ink-soft);margin:0;}
+  .bet-cell strong{color:var(--ink);font-weight:600;}
+  .mlp-list{margin:0;padding:0;list-style:none;}
+  .mlp-list li{font-size:15px;color:var(--ink-soft);padding-left:22px;position:relative;margin-bottom:9px;}
+  .mlp-list li:last-child{margin-bottom:0;}
+  .mlp-list li::before{content:"";position:absolute;left:0;top:9px;width:8px;height:8px;border-radius:50%;background:var(--sage);}
+  .aside{
+    margin-top:18px;background:var(--paper-2);border:1px dashed var(--line);
+    border-radius:var(--r-sm);padding:16px 18px;font-size:14px;color:var(--ink-soft);
+  }
+  .aside b{color:var(--ink);font-family:"Quicksand";font-weight:600;}
+
+  /* personal note */
+  .personal{
+    background:var(--card);border:1px solid var(--line);border-left:4px solid var(--sage);
+    border-radius:var(--r-md);padding:26px 30px;box-shadow:var(--shadow-soft);
+  }
+  .personal .eyebrow{margin-bottom:12px;}
+  .personal p{font-size:16.5px;color:var(--ink-soft);margin:0;line-height:1.62;}
+  .personal p .em{color:var(--ink);font-weight:500;}
+
+  /* method */
+  .method{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);padding:22px 20px;box-shadow:var(--shadow-soft);}
+  .step .n{font-family:"Quicksand";font-weight:700;font-size:13px;color:var(--lagoon-deep);}
+  .step h3{font-size:16px;margin:6px 0 7px;}
+  .step p{font-size:14px;color:var(--ink-soft);margin:0;}
+
+  /* proof */
+  .proof{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-soft);padding:30px;}
+  .proof-row{display:grid;grid-template-columns:160px 1fr;gap:18px;padding:18px 0;border-top:1px solid var(--line);}
+  .proof-row:first-of-type{border-top:none;padding-top:0;}
+  .proof-row .label{font-family:"Quicksand";font-weight:600;color:var(--ink);font-size:15.5px;}
+  .proof-row .label span{display:block;font-family:"Inter";font-weight:500;font-size:12.5px;color:var(--ink-faint);margin-top:3px;}
+  .proof-row p{font-size:14.5px;color:var(--ink-soft);margin:0;}
+
+  /* close */
+  .close{
+    background:linear-gradient(135deg,var(--sage) 0%,var(--lagoon) 100%);
+    border-radius:var(--r-lg);padding:42px 34px;text-align:center;color:#fff;box-shadow:var(--shadow);
+  }
+  .close h2{color:#fff;font-size:clamp(22px,3.4vw,29px);}
+  .close p{color:rgba(255,255,255,.92);max-width:48ch;margin:12px auto 22px;}
+  .close .btn.primary{background:#fff;color:var(--sage-deep);}
+  .close .btn.primary:hover{background:var(--paper);}
+
+  footer{padding:34px 0 56px;text-align:center;color:var(--ink-faint);font-size:13px;}
+  footer a{color:var(--ink-soft);}
+
+  @media (max-width:720px){
+    body{font-size:16px;}
+    .screen{padding:30px 22px 30px;}
+    .tiles{grid-template-columns:1fr;}
+    .bet-grid{grid-template-columns:1fr;}
+    .bet-cell:nth-child(odd){border-right:none;}
+    .method{grid-template-columns:1fr;}
+    .proof-row{grid-template-columns:1fr;gap:6px;}
+    .statusbar .meta .hide-sm{display:none;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none !important;scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="device">
+      <div class="statusbar">
+        <div class="os">
+          <span class="dot sage"></span><span class="dot lagoon"></span><span class="dot lav"></span>
+          Family OS
+        </div>
+        <div class="meta">
+          <span class="hide-sm">a note for Skylight</span>
+          <span>9:41</span>
+        </div>
+      </div>
+      <div class="screen">
+        <p class="eyebrow">Product Manager · 0→1</p>
+        <h1>Buddy grew the Family OS down to the kids. Here's how I'd grow it <span class="hl">up.</span></h1>
+        <p class="sub">I'm Mallory — a product manager who's also launching a brand of her own. This is a working point of view on where the Family OS goes next — shaped by something my own family has lived, past and present.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="#bet">Read the bet ↓</a>
+          <a class="btn ghost" href="https://www.linkedin.com/in/mallory-odom" target="_blank" rel="noopener">Connect on LinkedIn</a>
+        </div>
+        <div class="note-from">
+          <span class="dot sage"></span> Built the way Buddy was — discovery first, opinion second.
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="why">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Why this note, from me</p>
+      <h2>Three things that make me the 0→1 PM you described</h2>
+      <p class="lede">I'll be straight about the one gap, too — my PM career is B2B SaaS, not consumer at millions-of-families scale. What follows is how I close that distance.</p>
+    </div>
+    <div class="tiles">
+      <div class="tile">
+        <div class="chip" style="background:var(--sage)">B</div>
+        <h3>I build, end to end</h3>
+        <p>I'm launching LFTR — a print-on-demand apparel brand I architected solo, from storefront to catalog to pricing. Real 0→1 ownership. Happy to share an early look.</p>
+      </div>
+      <div class="tile">
+        <div class="chip" style="background:var(--lagoon)">AI</div>
+        <h3>I build in the AI era</h3>
+        <p>I work with AI tooling daily — Claude Code, MCP integrations against my own store's admin. I'm not theorizing about AI product; I'm shipping with it.</p>
+      </div>
+      <div class="tile">
+        <div class="chip" style="background:var(--apricot)">♥</div>
+        <h3>I know the customer</h3>
+        <p>Years on the retail and service frontline before PM — and, for the bet below, a family that's lived it. The empathy a family OS lives or dies on.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="bet">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">The bet · my first 90 days, on paper</p>
+      <h2>The Family OS grows up, not just down</h2>
+      <p class="lede">Buddy added a member at the youngest end of the family. The symmetric move — the one hiding in plain sight — is the oldest end: aging parents working to keep their independence, and the adult kids quietly carrying the worry.</p>
+    </div>
+
+    <div class="bet">
+      <div class="bet-top">
+        <span class="tag">The next member of the family OS</span>
+        <h3>A senior surface — software-first, built on the radical simplicity Skylight already leads on. The parent keeps their independence; the family keeps their peace of mind.</h3>
+      </div>
+      <div class="bet-grid">
+        <div class="bet-cell">
+          <div class="k">The insight</div>
+          <p>Skylight's origin product, the Frame, is <strong>already in grandparents' homes nationwide</strong> — adult kids buy it as the simplest possible way to stay connected. That's a warm beachhead the OS under-uses. The young end got Buddy. The old end is wide open.</p>
+        </div>
+        <div class="bet-cell">
+          <div class="k">The opportunity</div>
+          <p>Grow the OS <strong>up</strong> — software-led, riding the Frame and Calendar hardware already in the home. Same buyer (the sandwich-generation adult already running the family calendar), and two users whose interests finally <strong>align</strong> instead of pulling apart.</p>
+        </div>
+        <div class="bet-cell">
+          <div class="k">The minimum lovable product</div>
+          <ul class="mlp-list">
+            <li>A <strong>giant-type, high-contrast</strong> day-at-a-glance: today's plan, appointments, gentle medication and hydration nudges.</li>
+            <li>One-tap "call my daughter" and a stream of family photos — <strong>isolation is the real health risk</strong>.</li>
+            <li>A dignity-preserving loop: the parent taps "I'm okay today"; family adds a note or appointment <strong>without it feeling like surveillance</strong>.</li>
+          </ul>
+        </div>
+        <div class="bet-cell">
+          <div class="k">How we'd know it's working</div>
+          <p>Attach rate into existing <strong>Frame-owning households</strong> (the warm funnel), senior daily engagement, and the real prize — fewer "is Mom okay?" coordination calls. The mental-load promise, aimed one generation up.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="aside">
+      <b>Other bets I weighed, and why this won.</b> I looked at deepening "what's for dinner" (the strongest AI flex, but it reads as feature-deepening more than a next major step) and a broader household-operations layer (powerful, but it drifts toward a generic to-do app). Growing up wins first: it's a warm beachhead rather than a cold start, it points Skylight's simplicity superpower at the audience that rewards it most, and its two users collaborate rather than compete — the exact thing that would sink a version aimed at teens.
+    </div>
+  </div>
+</section>
+
+<section id="personal">
+  <div class="wrap">
+    <div class="personal">
+      <p class="eyebrow">Why this one, from me</p>
+      <p><span class="em">This isn't a market abstraction for me.</span> I've watched people I love work to hold onto their independence, and watched the rest of the family quietly carry the worry — and the tools that might have helped were never simple enough to actually get used. That gap, lived firsthand, is why I'd want to build this before anything else.</p>
+    </div>
+  </div>
+</section>
+
+<section id="method">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">How I'd get there</p>
+      <h2>I'd build it the way Buddy was built</h2>
+      <p class="lede">Your own launch note said it: you surveyed hundreds of parents and co-built with 60 real families until it was right. Same method here — and I'd start from a place I already understand.</p>
+    </div>
+    <div class="method">
+      <div class="step">
+        <div class="n">01</div>
+        <h3>Listen where it's real</h3>
+        <p>Talk to seniors aging in place and the adult kids coordinating their care — my own family included. Find the true shape of the worry before proposing a single pixel.</p>
+      </div>
+      <div class="step">
+        <div class="n">02</div>
+        <h3>Prototype for simplicity</h3>
+        <p>Put a stripped-down surface in front of real senior and adult-child pairs. Cut anything that isn't legible at arm's length. Protect dignity at every step.</p>
+      </div>
+      <div class="step">
+        <div class="n">03</div>
+        <h3>Ship to the metric</h3>
+        <p>Release into the warm Frame install base, watch daily senior engagement, and measure the worry we take off the family's plate.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="proof">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">The receipts</p>
+      <h2>What I've actually shipped</h2>
+    </div>
+    <div class="proof">
+      <div class="proof-row">
+        <div class="label">LFTR<span>founder · launching soon</span></div>
+        <p>A print-on-demand apparel brand I built and run solo — storefront, catalog architecture, pricing strategy, SEO, AI-assisted operations. It goes public shortly, and I'd gladly walk you through an early look. The clearest proof I can take a product from zero to live and wear every hat — the job you described.</p>
+      </div>
+      <div class="proof-row">
+        <div class="label">8+ yrs B2B PM<span>platforms &amp; partner ecosystems</span></div>
+        <p>Product management across SaaS platforms, integrations, and OEM partnerships. The craft — vision, ruthless prioritization, cross-functional delivery, KPI ownership — is the same craft this role needs; I'd bring it to a consumer surface.</p>
+      </div>
+      <div class="proof-row">
+        <div class="label">Frontline years<span>retail &amp; service</span></div>
+        <p>Before PM, years serving customers face to face. It's where I learned that the best product insight comes from watching people, not surveys alone — and why a family-products company feels like home.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="close">
+  <div class="wrap">
+    <div class="close">
+      <h2>I'd love to build the next member of the family.</h2>
+      <p>If this take resonates — or if you'd push back on it — I'd genuinely enjoy the conversation.</p>
+      <a class="btn primary" href="https://www.linkedin.com/in/mallory-odom" target="_blank" rel="noopener">Let's talk →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Mallory Odom · <a href="https://modom1123.github.io/portfolio/">full portfolio</a> · a working proposal, written independently and not affiliated with Skylight
+  </div>
+</footer>
+
+</body>
+</html>

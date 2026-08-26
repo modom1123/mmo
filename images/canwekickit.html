@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Can We Kick It — Interactive Prototype</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #000; font-family: sans-serif; }
+
+  .cwki-screen { display: none; position: relative; width: 100%; }
+  .cwki-screen.active { display: block; }
+  .cwki-screen img { display: block; width: 100%; height: auto; }
+
+  .cwki-hotspot {
+    position: absolute;
+    cursor: pointer;
+    display: block;
+  }
+  .cwki-hotspot:hover {
+    outline: 3px solid gold;
+    outline-offset: -3px;
+    background: rgba(255, 215, 0, 0.15);
+  }
+
+  .cwki-sidebar-hotspot {
+    position: fixed;
+    left: 0;
+    cursor: pointer;
+    z-index: 50;
+    display: block;
+  }
+  .cwki-sidebar-hotspot:hover {
+    outline: 3px solid gold;
+    outline-offset: -3px;
+    background: rgba(255, 215, 0, 0.15);
+  }
+
+  .cwki-back-link {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    font-size: 14px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.55);
+    padding: 6px 12px;
+    border-radius: 6px;
+    z-index: 100;
+    text-decoration: none;
+  }
+</style>
+</head>
+<body>
+
+<a href="../index.html" class="cwki-back-link">‹ back to portfolio</a>
+
+<!-- SPLASH -->
+<div class="cwki-screen active" id="screen-splash">
+  <img src="../images/can we kick it- enter.png" alt="Can We Kick It splash screen">
+  <a class="cwki-hotspot" style="left:0; top:0; width:100%; height:100%;"
+     onclick="return cwkiShow('screen-login')" title="Tap to enter"></a>
+</div>
+
+<!-- LOGIN -->
+<div class="cwki-screen" id="screen-login">
+  <img src="../images/can we kick it- login.png" alt="Login screen">
+  <a class="cwki-hotspot" style="left:39.4%; top:64.9%; width:21.2%; height:5%;"
+     onclick="return cwkiShow('screen-homepage')" title="Sign in"></a>
+</div>
+
+<!-- HOMEPAGE (top + bottom stacked, one scroll) -->
+<div class="cwki-screen" id="screen-homepage">
+  <img src="../images/can we kick it- homepage top.png" alt="Homepage top">
+  <img src="../images/can we kick it- homepage bottom.png" alt="Homepage bottom">
+</div>
+
+<!-- YOUR CREWS -->
+<div class="cwki-screen" id="screen-crews">
+  <img src="../images/can we kick it- your crews.png" alt="Your crews screen">
+  <a class="cwki-hotspot" style="left:42%; top:15%; width:16%; height:15%;"
+     onclick="return cwkiShow('screen-homepage')" title="Back to homepage"></a>
+</div>
+
+<!-- FAQ -->
+<div class="cwki-screen" id="screen-faq">
+  <img src="../images/can we kick it- FAQ.png" alt="FAQ screen">
+  <a class="cwki-hotspot" style="left:30%; top:1%; width:8%; height:5%;"
+     onclick="return cwkiShow('screen-homepage')" title="Back"></a>
+</div>
+
+<!-- SETTINGS -->
+<div class="cwki-screen" id="screen-settings">
+  <img src="../images/can we kick it- settings.png" alt="Settings screen">
+  <a class="cwki-hotspot" style="left:33%; top:1%; width:8%; height:5%;"
+     onclick="return cwkiShow('screen-homepage')" title="Back"></a>
+</div>
+
+<!-- CREW MAP -->
+<div class="cwki-screen" id="screen-map">
+  <img src="../images/can we kick it- crew map.png" alt="Crew map screen">
+  <a class="cwki-hotspot" style="left:22%; top:1%; width:8%; height:5%;"
+     onclick="return cwkiShow('screen-homepage')" title="Back"></a>
+</div>
+
+<!-- NOTIFICATIONS -->
+<div class="cwki-screen" id="screen-notifications">
+  <img src="../images/can we kick it- notifications.png" alt="Notifications screen">
+  <a class="cwki-hotspot" style="left:33%; top:1%; width:8%; height:5%;"
+     onclick="return cwkiShow('screen-homepage')" title="Back"></a>
+</div>
+
+<!-- FIXED SIDEBAR (only active on homepage) -->
+<div id="cwki-sidebar" style="display:none;">
+  <a class="cwki-sidebar-hotspot" style="top:9%; width:4vw; height:3.5vh;"
+     onclick="return cwkiShow('screen-notifications')" title="Notifications"></a>
+  <a class="cwki-sidebar-hotspot" style="top:14%; width:4vw; height:3.5vh;"
+     onclick="return cwkiShow('screen-map')" title="Crew Map"></a>
+  <a class="cwki-sidebar-hotspot" style="top:19%; width:4vw; height:3.5vh;"
+     onclick="return cwkiShow('screen-crews')" title="Your Crews"></a>
+  <a class="cwki-sidebar-hotspot" style="top:87%; width:4vw; height:3.5vh;"
+     onclick="return cwkiShow('screen-settings')" title="Settings"></a>
+  <a class="cwki-sidebar-hotspot" style="top:92%; width:4vw; height:3.5vh;"
+     onclick="return cwkiShow('screen-faq')" title="FAQ"></a>
+</div>
+
+<script>
+function cwkiShow(id) {
+  document.querySelectorAll('.cwki-screen').forEach(function (s) {
+    s.classList.remove('active');
+  });
+  document.getElementById(id).classList.add('active');
+  document.getElementById('cwki-sidebar').style.display =
+    (id === 'screen-homepage') ? 'block' : 'none';
+  window.scrollTo(0, 0);
+  return false;
+}
+</script>
+
+</body>
+</html>

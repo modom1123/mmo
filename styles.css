@@ -1,0 +1,659 @@
+/* ============================================
+   RESET & BASE
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    background: #FFFFFF;
+    padding: 60px;
+}
+
+/* ============================================
+   ROW 1: Home + Nav + Back
+   ============================================ */
+.row-1 {
+    display: grid;
+    grid-template-columns: 80px 1fr 80px;
+    height: 60px;
+    background: transparent;
+    overflow: visible;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 100;
+}
+
+.row-1 > .img-block {
+    width: 80px;
+    height: 60px;
+    overflow: visible;
+    position: static;
+}
+
+.row-1 > .img-block .default {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.row-1 > .img-block:first-child .hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.row-1 > .img-block:last-child {
+    overflow: hidden;
+    position: relative;
+}
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links > li {
+    position: relative;
+}
+
+.nav-links > li > a {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    color: #1A1A1A;
+    text-decoration: none;
+    letter-spacing: 1px;
+    padding: 0.5rem;
+    display: block;
+    transition: color 0.3s;
+}
+
+.nav-links > li > a:hover {
+    color: #D4B83D;
+}
+
+.nav-links > li > a.active {
+    color: #D4B83D;
+}
+
+/* ============================================
+   DROPDOWN MENU
+   ============================================ */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #FFFFFF;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    min-width: 160px;
+    z-index: 1000;
+    border-top: 3px solid #D4B83D;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.dropdown-menu li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 12px 20px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1rem;
+    color: #1A1A1A;
+    text-decoration: none;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #FFFFFF;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #F5F0E8;
+    color: #D4B83D;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* ============================================
+   ROW 2: Tagline + Crayons
+   ============================================ */
+.row-2 {
+    line-height: 0;
+}
+
+.row-2 .img-block {
+    width: 100%;
+}
+
+.row-2 .img-block img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ============================================
+   ROW 3: Click Here
+   ============================================ */
+.row-3 {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+.row-3 .img-block img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ============================================
+   ROW 4: Sky
+   ============================================ */
+.row-4 {
+    line-height: 0;
+}
+
+.row-4 .img-block {
+    width: 100%;
+    height: auto;
+}
+
+.row-4 .img-block img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.row-4 .img-block .hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* ============================================
+   ROW 5: Category Cards
+   ============================================ */
+.row-5 {
+    display: grid;
+    grid-template-columns: 420fr 320fr 280fr 260fr;
+    gap: 0;
+}
+
+.row-5 .img-block {
+    min-width: 0;
+}
+
+.row-5 .img-block img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.row-5 .img-block .hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* ============================================
+   ROW 6: Blank Spacer
+   ============================================ */
+.row-6 {
+    height: 50px;
+    background: #FFFFFF;
+}
+
+/* ============================================
+   ABOUT ME PAGE - FULL BANNERS + CARD GRID
+   ============================================ */
+.about-banner {
+    line-height: 0;
+    width: 100%;
+}
+
+.about-banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.about-strengths-row {
+    display: grid;
+    grid-template-columns: 908.54fr 555fr;
+}
+
+.about-strengths-row > * {
+    min-width: 0;
+}
+
+.about-strengths-row img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.about-cards {
+    display: grid;
+    grid-template-columns: 484fr 599fr 389fr;
+}
+
+.about-cards > * {
+    min-width: 0;
+}
+
+.about-cards img,
+.about-cards .img-block {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ============================================
+   IMAGE BLOCKS
+   ============================================ */
+.img-block {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    line-height: 0;
+}
+
+.img-block img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.img-block .hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.img-block:hover .default {
+    opacity: 0;
+}
+
+.img-block:hover .hover {
+    opacity: 1;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+/* ============================================
+   FULL PAGE IMAGE (for subpages)
+   ============================================ */
+.page-image {
+    width: 100%;
+}
+
+.page-image img {
+    width: 100%;
+    display: block;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+footer {
+    background: #1A1A1A;
+    padding: 2rem;
+    text-align: center;
+}
+
+.footer-stripes {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 1rem;
+}
+
+.stripe {
+    width: 40px;
+    height: 6px;
+}
+
+.s1 { background: #E86A33; }
+.s2 { background: #C41E7F; }
+.s3 { background: #D4B83D; }
+.s4 { background: #1A5E63; }
+.s5 { background: #3BA4DC; }
+
+footer p {
+    color: white;
+    opacity: 0.7;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: #D4B83D;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* ============================================
+   RESUME PAGE
+   ============================================ */
+.resume-page {
+    position: relative;
+    width: 100%;
+    padding: 40px 0;
+    background-image: url('images/resume-background.png');
+    background-size: 100% 100%;
+    background-position: top center;
+    background-repeat: no-repeat;
+}
+
+.resume-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    background: #FFFFFF;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.resume-section {
+    line-height: 0;
+    display: block;
+}
+
+.resume-section img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.resume-link {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.resume-link .default {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+.resume-link .hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.resume-link:hover .default {
+    opacity: 0;
+}
+
+.resume-link:hover .hover {
+    opacity: 1;
+}
+
+/* ============================================
+   RESUME GRID ROWS
+   ============================================ */
+.resume-grid-item {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.resume-grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.resume-grid-item .hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.resume-grid-item:hover .default {
+    opacity: 0;
+}
+
+.resume-grid-item:hover .hover {
+    opacity: 1;
+}
+
+/* ============================================
+   CASE STUDY PAGES
+   ============================================ */
+.case-study-section {
+    line-height: 0;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+.case-study-section > img.default {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.case-study-section > img.hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.case-study-section:hover > img.default {
+    opacity: 0;
+}
+
+.case-study-section:hover > img.hover {
+    opacity: 1;
+}
+
+.case-study-section:last-of-type {
+    padding-bottom: 60px;
+}
+
+/* ============================================
+   PREVENT HORIZONTAL OVERFLOW
+   ============================================ */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* ============================================
+   TESTIMONIALS PAGE BACKGROUND
+   ============================================ */
+.testimonials-page {
+    background-image: url('images/testimonials-background.png');
+    background-size: 100% 100%;
+    background-position: top center;
+    background-repeat: no-repeat;
+    width: 100%;
+    padding-top: 60px;
+}
+
+/* ============================================
+   TESTIMONIALS HEADER ROW
+   ============================================ */
+.testimonials-header {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto 20px;
+    line-height: 0;
+}
+
+.testimonials-header img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.no-hover:hover .default {
+    opacity: 1;
+}
+.no-hover.resume-link:hover .default {
+    opacity: 1;
+}
+
+/* ============================================
+   WHY THIS MVP PAGE
+   ============================================ */
+.mvp-page {
+    min-height: 100vh;
+    background: #5c1620;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+}
+
+.mvp-back-link {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    font-size: 14px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.35);
+    padding: 6px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    z-index: 10;
+}
+
+.mvp-back-link:hover {
+    background: rgba(0, 0, 0, 0.55);
+}
+
+.mvp-paper {
+    position: relative;
+    width: 100%;
+    max-width: 620px;
+    background: #fdfcf7;
+    padding: 60px 40px 60px 70px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+    transform: rotate(-0.6deg);
+    background-image:
+        repeating-linear-gradient(
+            to bottom,
+            transparent,
+            transparent 38px,
+            #cdd9ec 39px
+        );
+    background-position: 0 90px;
+    animation: mvp-settle 0.6s ease-out;
+}
+
+.mvp-paper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 44px;
+    width: 1px;
+    background: #d98a8a;
+}
+
+@keyframes mvp-settle {
+    from { opacity: 0; transform: rotate(-0.6deg) translateY(10px); }
+    to   { opacity: 1; transform: rotate(-0.6deg) translateY(0); }
+}
+
+.mvp-ink {
+    font-family: 'Caveat', cursive;
+    font-size: 30px;
+    line-height: 39px;
+    color: #24356b;
+    font-weight: 500;
+}
+
+.mvp-ink p {
+    margin: 0;
+}
+
+.mvp-ink .emphasis {
+    font-weight: 700;
+    position: relative;
+}
+
+.mvp-ink .emphasis::after {
+    content: "";
+    position: absolute;
+    left: -2px;
+    right: -4px;
+    bottom: 2px;
+    height: 6px;
+    border-bottom: 2px solid #24356b;
+    border-radius: 50%;
+    transform: rotate(-1deg);
+}
