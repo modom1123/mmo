@@ -42,6 +42,22 @@
         letter-spacing: 0;
     }
 
+    .row-3 {
+        grid-template-columns: 1fr;
+    }
+
+    .row-5 {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .about-strengths-row {
+        grid-template-columns: 1fr;
+    }
+
+    .about-cards {
+        grid-template-columns: 1fr;
+    }
+
     .resume-content {
         padding: 16px;
         box-shadow: none;
