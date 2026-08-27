@@ -769,4 +769,10 @@ html, body {
     .resume-download {
         padding: 16px 0;
     }
-
+/* Mobile tap preview for resume links */
+.resume-link.tapped .default {
+    opacity: 0;
+}
+.resume-link.tapped .hover {
+    opacity: 1;
+}
