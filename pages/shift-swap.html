@@ -136,7 +136,7 @@
                 <img src="../images/shift swap-users.png" alt="ShiftSwap users view">
             </div>
 
-            <!-- Persistent bottom nav hotspots, same on every screen -->
+            <!-- Persistent bottom nav hotspots -->
             <div class="nav-hotspots">
                 <div class="hotspot" data-goto="requests" style="left: 36%; top: 94%; width: 5.5%; height: 5.5%;"></div>
                 <div class="hotspot" data-goto="find-home" style="left: 41.8%; top: 94%; width: 5.5%; height: 5.5%;"></div>
@@ -147,7 +147,7 @@
 
         </div>
 
-        <p class="demo-note">Click the highlighted areas to navigate the prototype.</p>
+        <p class="demo-note">Tap the highlighted areas to navigate the prototype.</p>
 
     </div>
 
@@ -160,18 +160,21 @@
             <div class="stripe s4"></div>
             <div class="stripe s5"></div>
         </div>
-        <p>© 2024 Mallory Odom</p>
+        <p>© 2026 Mallory Odom | <a href="whythismvp.html">Why this MVP?</a></p>
     </footer>
 
     <script src="../app.js"></script>
     <script>
         document.querySelectorAll('.hotspot[data-goto]').forEach(function (spot) {
-            spot.addEventListener('click', function () {
+            function navigate(e) {
+                e.preventDefault();
                 var target = spot.getAttribute('data-goto');
                 document.querySelectorAll('.demo-screen').forEach(function (screen) {
                     screen.classList.toggle('active', screen.getAttribute('data-screen') === target);
                 });
-            });
+            }
+            spot.addEventListener('click', navigate);
+            spot.addEventListener('touchend', navigate);
         });
     </script>
 </body>
