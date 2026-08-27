@@ -41,4 +41,30 @@ function preloadHoverImages() {
 document.addEventListener('DOMContentLoaded', function() {
     setActiveNavLink();
     preloadHoverImages();
+
+    // Mobile tap-to-preview hover state on resume links
+    if ('ontouchstart' in window) {
+        document.querySelectorAll('.resume-link').forEach(function(link) {
+            link.addEventListener('touchend', function(e) {
+                if (!link.classList.contains('tapped')) {
+                    e.preventDefault();
+                    // Clear any other tapped links
+                    document.querySelectorAll('.resume-link.tapped').forEach(function(other) {
+                        other.classList.remove('tapped');
+                    });
+                    link.classList.add('tapped');
+                }
+                // Second tap — let it navigate naturally
+            });
+        });
+
+        // Tap anywhere else to dismiss
+        document.addEventListener('touchend', function(e) {
+            if (!e.target.closest('.resume-link')) {
+                document.querySelectorAll('.resume-link.tapped').forEach(function(link) {
+                    link.classList.remove('tapped');
+                });
+            }
+        });
+    }
 });
